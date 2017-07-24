@@ -198,6 +198,19 @@
     
 }
 
+/*
+ * MQTTSessionManagerDelegate
+ */
+- (void)messageDelivered:(UInt16)msgID {
+    NSString *strValue = [@(msgID) stringValue];
+    [self.bridge.eventDispatcher sendDeviceEventWithName:@"mqtt_events"
+                                                    body:@{
+                                                           @"event": @"messageDelivered",
+                                                           @"clientRef": [NSNumber numberWithInt:[self clientRef]],
+                                                           @"message": strValue
+                                                           }];
+}
+
 
 - (void)dealloc
 {

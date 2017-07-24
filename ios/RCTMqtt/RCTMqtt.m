@@ -7,14 +7,14 @@
 //
 
 #import "RCTMqtt.h"
-#import "RCTBridgeModule.h"
-#import "RCTLog.h"
-#import "RCTUtils.h"
-#import "RCTEventDispatcher.h"
+#import "React/RCTBridgeModule.h"
+#import "React/RCTLog.h"
+#import "React/RCTUtils.h"
+#import "React/RCTEventDispatcher.h"
 
 #import <MQTTClient/MQTTClient.h>
 #import <MQTTClient/MQTTSessionManager.h>
-#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <CocoaLumberjack/Classes/CocoaLumberjack.h>
 #import "Mqtt.h"
 
 @interface RCTMqtt : NSObject<RCTBridgeModule>
