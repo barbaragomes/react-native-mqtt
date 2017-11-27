@@ -337,7 +337,14 @@ public class RCTMqtt implements MqttCallback{
     //
     // note that token.getTopics() returns an array so we convert to a string
     // before printing it on the console
-    log("Delivery complete callback: Publish Completed ");
+	
+	WritableMap data = Arguments.createMap();
+	data.putInt("msg_id", token.getMessageId());
+
+	WritableMap params = Arguments.createMap();
+	params.putString("event", "messageDelivered");
+	params.putMap("message", data);
+	sendEvent(_reactContext, "mqtt_events", params);
   }
 
     /**
